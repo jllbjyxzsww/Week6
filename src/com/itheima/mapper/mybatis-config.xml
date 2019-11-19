@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+    <typeAlias type="com.itheima.po.Customer" alias="Customer"/>
+    </typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+			    <!--以下四个属性的配置就是你的数据库信息，shumei 是数据库名字记得不要填错！
+			       注意：有的同学如果数据库是高版本的，和这个配置不一样，去网上百度下
+			     -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/shumei?useUnicode=true&amp;characterEncoding=utf8" />
+				<property name="username" value="root" />
+				<property name="password" value="123" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+	    <!-- 此处是CustomerMapper.xml的路径地址要记得对应 -->
+		<mapper resource="com/itheima/mapper/CustomerMapper.xml" />
+	</mappers>
+</configuration>
